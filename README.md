@@ -14,6 +14,12 @@ node[3]->value:3
 node[4]->value:4
 ```
 
+## 单链表 查询值 删除值
+
+[single_linked_find_del.c](https://github.com/blackyau/Learn_C/blob/master/single_linked_find_del.c)
+
+未完成
+
 # License
 
 This is free and unencumbered software released into the public domain.
