@@ -34,6 +34,12 @@ node[0]:3
 node[0]:4
 ```
 
+# TODO
+
+- [] 循环链表
+- [] 双向链表
+- [] 双向循环链表
+
 # License
 
 This is free and unencumbered software released into the public domain.
