@@ -18,11 +18,20 @@ node[4]->value:4
 
 [single_linked_find_del.c](https://github.com/blackyau/Learn_C/blob/master/single_linked_find_del.c)
 
-在单链表中查询指定值，并返回匹配节点的指针，打印值。找不到就打印-1。
+在单链表中查询指定值，并返回匹配节点的指针，打印值。找不到就打印-1，删除指定值的节点。运行后打印结果：
 
 ```
+node[0]:-842150451
+node[0]:1
+node[0]:2
+node[0]:3
+node[0]:4
 now:3
 next:4
+node[0]:-842150451
+node[0]:1
+node[0]:3
+node[0]:4
 ```
 
 # License
