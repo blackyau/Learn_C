@@ -22,16 +22,16 @@ node[4]->value:4
 
 ```
 node[0]:-842150451
-node[0]:1
-node[0]:2
-node[0]:3
-node[0]:4
+node[1]:1
+node[2]:2
+node[3]:3
+node[4]:4
 now:3
 next:4
 node[0]:-842150451
-node[0]:1
-node[0]:3
-node[0]:4
+node[1]:1
+node[2]:3
+node[3]:4
 ```
 
 # TODO
