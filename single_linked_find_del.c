@@ -68,7 +68,8 @@ void show(struct node* head){
 	struct node* temp = head;
 	int i = 0;
 	while (temp != NULL) {
-		printf("[%d]:%d\n", i, temp->value);
+		printf("node[%d]:%d\n", i, temp->value);
 		temp = temp->next;
+		i++;
 	}
 }
