@@ -38,6 +38,7 @@ void insert(struct node* head, int index, int in) {
 	in_node->value = in; // 初始化被插入的节点
 	in_node->next = head;
 	temp = head->next; // 如果不加，那么下面的 while 永远无法开始
+	// 主循环 遍历下一个节点
 	while (temp != head && temp->value != index) { // 如果没到尾部也没有找到值就遍历下一个节点
 		temp = temp->next;
 	}
