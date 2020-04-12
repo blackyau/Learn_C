@@ -1,6 +1,6 @@
 # C语言 数据结构学习
 
-## 单链表-初始化-头节点
+## 单链表 初始化 头节点
 
 [single_linked_init_head.c](https://github.com/blackyau/Learn_C/blob/master/single_linked_init_head.c)
 
