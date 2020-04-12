@@ -38,7 +38,36 @@ node[3]:4
 
 [single_loop.c](https://github.com/blackyau/Learn_C/blob/master/single_loop.c)
 
-待完成
+```
+node[0]:0, next:node[1]:1
+node[1]:1, next:node[1]:2
+node[2]:2, next:node[2]:3
+node[3]:3, next:node[0]:0
+
+insert -1 after node->value == 0
+node[0]:0, next:node[1]:-1
+node[1]:-1, next:node[1]:1
+node[2]:1, next:node[2]:2
+node[3]:2, next:node[3]:3
+node[4]:3, next:node[0]:0
+
+insert -1 after node->value == 2
+node[0]:0, next:node[1]:-1
+node[1]:-1, next:node[1]:1
+node[2]:1, next:node[2]:2
+node[3]:2, next:node[3]:-1
+node[4]:-1, next:node[4]:3
+node[5]:3, next:node[0]:0
+
+insert -1 after node->value == 3
+node[0]:0, next:node[1]:-1
+node[1]:-1, next:node[1]:1
+node[2]:1, next:node[2]:2
+node[3]:2, next:node[3]:-1
+node[4]:-1, next:node[4]:3
+node[5]:3, next:node[5]:-1
+node[6]:-1, next:node[0]:0
+```
 
 # TODO
 
