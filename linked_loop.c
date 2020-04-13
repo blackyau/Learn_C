@@ -19,19 +19,19 @@ void main() {
 		insert(head, i - 1, i);
 	}
 	show(head);
-	printf("\ninsert -1 after node->value == 0\n");
+	printf("insert -1 after node->value == 0\n\n");
 	insert(head, 0, -1);
 	show(head);
-	printf("\ninsert -1 after node->value == 1\n");
+	printf("insert -1 after node->value == 1\n\n");
 	insert(head, 1, -1);
 	show(head);
-	printf("\ninsert -1 after node->value == 3\n");
+	printf("insert -1 after node->value == 3\n\n");
 	insert(head, 3, -1);
 	show(head);
-	printf("\ninsert -1 after node->value == 6\n");
+	printf("insert -1 after node->value == 6\n\n");
 	insert(head, 6, -1);
 	show(head);
-	printf("\nrm node->value == -1\n");
+	printf("rm node->value == -1\n\n");
 	int flag = 1;
 	while (flag)flag = rm(head, -1);
 	show(head);
