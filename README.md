@@ -2,7 +2,7 @@
 
 ## 单链表 初始化 头节点
 
-[linked_single_init_head.c](https://github.com/blackyau/Learn_C/blob/master/linked_single_init_head.c)
+[single_linked_init_head.c](https://github.com/blackyau/Learn_C/blob/master/linked_single_init_head.c)
 
 仅初始化单节点，并保留头节点。下面是运行后打印的结果：
 
@@ -16,7 +16,7 @@ node[4]->value:4
 
 ## 单链表 查询值 删除值
 
-[linked_single_find_del.c](https://github.com/blackyau/Learn_C/blob/master/linked_single_find_del.c)
+[single_linked_find_del.c](https://github.com/blackyau/Learn_C/blob/master/linked_single_find_del.c)
 
 在单链表中查询指定值，并返回匹配节点的指针，打印值。找不到就打印-1，删除指定值的节点。运行后打印结果：
 
@@ -36,7 +36,7 @@ node[3]:4
 
 ## 单链表 循环链表
 
-[linked_loop.c](https://github.com/blackyau/Learn_C/blob/master/linked_loop.c)
+[single_loop.c](https://github.com/blackyau/Learn_C/blob/master/linked_loop.c)
 
 循环链表中插入节点，删除指定值的节点。运行后打印结果：
 
