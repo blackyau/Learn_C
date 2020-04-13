@@ -1,4 +1,4 @@
-//单链表
+//单链表 初始化 头节点
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct { // 定义链表结构体
