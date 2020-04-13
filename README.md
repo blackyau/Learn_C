@@ -38,6 +38,11 @@ node[3]:4
 
 [single_loop.c](https://github.com/blackyau/Learn_C/blob/master/single_loop.c)
 
+循环链表中插入节点，删除指定值的节点。运行后打印结果：
+
+<details>
+<summary>展开查看</summary>
+
 ```
 node[0]:0, next:node[1]:1
 node[1]:1, next:node[1]:2
@@ -51,29 +56,51 @@ node[2]:1, next:node[2]:2
 node[3]:2, next:node[3]:3
 node[4]:3, next:node[0]:0
 
-insert -1 after node->value == 2
+insert -1 after node->value == 1
 node[0]:0, next:node[1]:-1
 node[1]:-1, next:node[1]:1
-node[2]:1, next:node[2]:2
-node[3]:2, next:node[3]:-1
-node[4]:-1, next:node[4]:3
+node[2]:1, next:node[2]:-1
+node[3]:-1, next:node[3]:2
+node[4]:2, next:node[4]:3
 node[5]:3, next:node[0]:0
 
 insert -1 after node->value == 3
 node[0]:0, next:node[1]:-1
 node[1]:-1, next:node[1]:1
-node[2]:1, next:node[2]:2
-node[3]:2, next:node[3]:-1
-node[4]:-1, next:node[4]:3
+node[2]:1, next:node[2]:-1
+node[3]:-1, next:node[3]:2
+node[4]:2, next:node[4]:3
 node[5]:3, next:node[5]:-1
 node[6]:-1, next:node[0]:0
+
+insert -1 after node->value == 6
+node[0]:0, next:node[1]:-1
+node[1]:-1, next:node[1]:1
+node[2]:1, next:node[2]:-1
+node[3]:-1, next:node[3]:2
+node[4]:2, next:node[4]:3
+node[5]:3, next:node[5]:-1
+node[6]:-1, next:node[0]:0
+
+rm node->value == -1
+node[0]:0, next:node[1]:1
+node[1]:1, next:node[1]:2
+node[2]:2, next:node[2]:3
+node[3]:3, next:node[0]:0
 ```
+</details>
 
 # TODO
+
+## 单链表
 
 - [ ] 循环链表
 - [ ] 双向链表
 - [ ] 双向循环链表
+
+## 栈
+
+...
 
 # License
 
