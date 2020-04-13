@@ -1,5 +1,5 @@
 // 单链表 循环链表
-// TODO 插入/删除 节点
+// TODO 删除 节点
 #include<stdio.h>
 #include<stdlib.h>
 struct node {
@@ -24,29 +24,34 @@ void main() {
 	printf("\ninsert -1 after node->value == 0\n");
 	insert(head, 0, -1);
 	show(head);
-	printf("\ninsert -1 after node->value == 2\n");
-	insert(head, 2, -1);
+	printf("\ninsert -1 after node->value == 1\n");
+	insert(head, 1, -1);
 	show(head);
 	printf("\ninsert -1 after node->value == 3\n");
 	insert(head, 3, -1);
 	show(head);
-}
+	printf("\ninsert -1 after node->value == 6\n");
+	insert(head, 6, -1);
+	show(head);
+} 
 
 void insert(struct node* head, int index, int in) {
 	struct node* temp = head;
 	struct node* in_node = (struct node*)malloc(sizeof(struct node));
+	int count = 0;
 	in_node->value = in; // 初始化被插入的节点
 	in_node->next = head;
-	temp = head->next; // 如果不加，那么下面的 while 永远无法开始
-	// 主循环 遍历下一个节点
-	while (temp != head && temp->value != index) { // 如果没到尾部也没有找到值就遍历下一个节点
-		temp = temp->next;
+	while (temp->value != index && count<2) { // 没有查找到值就继续遍历，如果是第二次来到 head 说明链表中不存在该值
+		if (temp == head)++count;
+		temp = temp->next; // 遍历下一个节点
 	}
-	if (temp == head && temp->next == head) { // 当链表只有头节点时的特殊处理
+	if (temp->value == index && temp->next == head) { // 在尾部插入,特殊处理
 		temp->next = in_node;
-	}else {
-		in_node->next = temp->next; // 将被插入节点连接到后面
-		temp->next = in_node; // 将被插入连接到，插入到指定节点的后面
+		return;
+	}
+	if (temp->value == index) { // 在头部或中部插入
+		in_node->next = temp->next;
+		temp->next = in_node;
 	}
 }
 
