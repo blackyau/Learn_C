@@ -90,6 +90,10 @@ node[3]:3, next:node[0]:0
 ```
 </details>
 
+## 双向链表
+
+未完成
+
 # TODO
 
 ## 单链表
