@@ -44,49 +44,49 @@ node[3]:4
 <summary>展开查看</summary>
 
 ```
-node[0]:0, next:node[1]:1
-node[1]:1, next:node[1]:2
-node[2]:2, next:node[2]:3
-node[3]:3, next:node[0]:0
+node[0]: 0, next:node[1]: 1
+node[1]: 1, next:node[1]: 2
+node[2]: 2, next:node[2]: 3
+node[3]: 3, next:node[0]: 0
 
 insert -1 after node->value == 0
-node[0]:0, next:node[1]:-1
-node[1]:-1, next:node[1]:1
-node[2]:1, next:node[2]:2
-node[3]:2, next:node[3]:3
-node[4]:3, next:node[0]:0
+node[0]: 0, next:node[1]:-1
+node[1]:-1, next:node[1]: 1
+node[2]: 1, next:node[2]: 2
+node[3]: 2, next:node[3]: 3
+node[4]: 3, next:node[0]: 0
 
 insert -1 after node->value == 1
-node[0]:0, next:node[1]:-1
-node[1]:-1, next:node[1]:1
-node[2]:1, next:node[2]:-1
-node[3]:-1, next:node[3]:2
-node[4]:2, next:node[4]:3
-node[5]:3, next:node[0]:0
+node[0]: 0, next:node[1]:-1
+node[1]:-1, next:node[1]: 1
+node[2]: 1, next:node[2]:-1
+node[3]:-1, next:node[3]: 2
+node[4]: 2, next:node[4]: 3
+node[5]: 3, next:node[0]: 0
 
 insert -1 after node->value == 3
-node[0]:0, next:node[1]:-1
-node[1]:-1, next:node[1]:1
-node[2]:1, next:node[2]:-1
-node[3]:-1, next:node[3]:2
-node[4]:2, next:node[4]:3
-node[5]:3, next:node[5]:-1
-node[6]:-1, next:node[0]:0
+node[0]: 0, next:node[1]:-1
+node[1]:-1, next:node[1]: 1
+node[2]: 1, next:node[2]:-1
+node[3]:-1, next:node[3]: 2
+node[4]: 2, next:node[4]: 3
+node[5]: 3, next:node[5]:-1
+node[6]:-1, next:node[0]: 0
 
 insert -1 after node->value == 6
-node[0]:0, next:node[1]:-1
-node[1]:-1, next:node[1]:1
-node[2]:1, next:node[2]:-1
-node[3]:-1, next:node[3]:2
-node[4]:2, next:node[4]:3
-node[5]:3, next:node[5]:-1
-node[6]:-1, next:node[0]:0
+node[0]: 0, next:node[1]:-1
+node[1]:-1, next:node[1]: 1
+node[2]: 1, next:node[2]:-1
+node[3]:-1, next:node[3]: 2
+node[4]: 2, next:node[4]: 3
+node[5]: 3, next:node[5]:-1
+node[6]:-1, next:node[0]: 0
 
 rm node->value == -1
-node[0]:0, next:node[1]:1
-node[1]:1, next:node[1]:2
-node[2]:2, next:node[2]:3
-node[3]:3, next:node[0]:0
+node[0]: 0, next:node[1]: 1
+node[1]: 1, next:node[1]: 2
+node[2]: 2, next:node[2]: 3
+node[3]: 3, next:node[0]: 0
 ```
 </details>
 

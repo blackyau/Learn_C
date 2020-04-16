@@ -64,15 +64,15 @@ void show(struct node* head) {
 	struct node* temp = (struct node*)malloc(sizeof(struct node));
 	temp = head;
 	// 对头节点特殊处理，先打印出来。方便后面的遍历
-	printf("node[0]:%d, next:node[1]:%d\n", temp->value, temp->next->value);
+	printf("node[0]:%2d, next:node[1]:%2d\n", temp->value, temp->next->value);
 	temp = head->next; // 直接从 head 的下一节点开始
 	while (temp->next != head) { // 当前节点不为头节点，才会打印。因为循环链表最后一个节点的 next 是头
-		printf("node[%d]:%d, next:node[%d]:%d\n", i, temp->value, i, temp->next->value);
+		printf("node[%d]:%2d, next:node[%d]:%2d\n", i, temp->value, i, temp->next->value);
 		temp = temp->next;
 		i++;
 	}
 	// 对尾部节点特殊处理
-	printf("node[%d]:%d, next:node[%d]:%d\n", i, temp->value, 0, temp->next->value);
+	printf("node[%d]:%2d, next:node[%d]:%2d\n", i, temp->value, 0, temp->next->value);
 }
 
 int rm(struct node* head, int index) {
