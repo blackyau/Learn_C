@@ -128,6 +128,27 @@ Node[3]->prior:   1, Node[3]->value: 2, Node[3]->next:  -1
 Node[4]->prior:   2, Node[4]->value:-1, Node[4]->next:   3
 Node[5]->prior:   2, Node[5]->value: 3, Node[5]->next:  -1
 Node[6]->prior:   3, Node[6]->value:-1, Node[6]->next:NULL
+
+rm node[2]
+Node[0]->prior:NULL, Node[0]->value: 0, Node[0]->next:   1
+Node[1]->prior:   0, Node[1]->value: 1, Node[1]->next:   2
+Node[2]->prior:   1, Node[2]->value: 2, Node[2]->next:  -1
+Node[3]->prior:   2, Node[3]->value:-1, Node[3]->next:   3
+Node[4]->prior:   2, Node[4]->value: 3, Node[4]->next:  -1
+Node[5]->prior:   3, Node[5]->value:-1, Node[5]->next:NULL
+
+rm node[3]
+Node[0]->prior:NULL, Node[0]->value: 0, Node[0]->next:   1
+Node[1]->prior:   0, Node[1]->value: 1, Node[1]->next:   2
+Node[2]->prior:   1, Node[2]->value: 2, Node[2]->next:   3
+Node[3]->prior:   2, Node[3]->value: 3, Node[3]->next:  -1
+Node[4]->prior:   3, Node[4]->value:-1, Node[4]->next:NULL
+
+rm node[4]
+Node[0]->prior:NULL, Node[0]->value: 0, Node[0]->next:   1
+Node[1]->prior:   0, Node[1]->value: 1, Node[1]->next:   2
+Node[2]->prior:   1, Node[2]->value: 2, Node[2]->next:   3
+Node[3]->prior:   2, Node[3]->value: 3, Node[3]->next:NULL
 ```
 </details>
 
@@ -136,7 +157,7 @@ Node[6]->prior:   3, Node[6]->value:-1, Node[6]->next:NULL
 ## 单链表
 
 - [X] 循环链表
-- [ ] 双向链表
+- [X] 双向链表
 - [ ] 双向循环链表
 
 ## 栈

@@ -8,13 +8,15 @@ typedef struct Node {
 	struct Node* next;
 }Node;
 
+static Node head_data;
+static Node* head = &head_data; // 头节点全局变量
 static int now = 0; // 从head开始数起，当前指针指向第几个节点
 Node* InitNode(Node *L, int data); // 将以data为值的节点插入到L的下一节点
-void insert(Node* L, int index, int data); // 为L链表中index下标的next插入一个value为data的节点
+void insert(Node* L, int index, int data); // 在L链表中index下标节点的next插入一个value为data的节点
+void rm(Node* L, int index); // 删除L链表中下标为index的节点
 void show(Node* head); // 打印整个链表
 
 void main() {
-	Node* head = (Node*)malloc(sizeof(Node));
 	head->value = 0;
 	head->next = NULL;
 	head->prior = NULL;
@@ -31,6 +33,17 @@ void main() {
 	show(head);
 	printf("\ninser -1 after node[3]\n");
 	insert(temp, 3, -1);
+	show(head);
+	now = 0; // 后面删除都是传head，所以当前下标也都改为0。
+	// 不能继续用temp进去删除，如果把temp本身删了那以后的代码都不能继续了
+	printf("\nrm node[2]\n");
+	rm(head, 2);
+	show(head);
+	printf("\nrm node[3]\n");
+	rm(head, 3);
+	show(head);
+	printf("\nrm node[4]\n");
+	rm(head, 4);
 	show(head);
 }
 
@@ -93,4 +106,38 @@ void insert(Node* L, int index, int data) {
 		}
 	}
 	if (now_index < now)++now; // 如果是在当前下标之前插入的节点，就需要将下标+1。防止下一次插入出问题。
+}
+
+void rm(Node* L, int index) {
+	int now_index = now;
+	Node* rm_node = NULL;
+	Node* temp = L;
+	// 主循环，寻找正确下标位置的节点
+	while (now_index != index && temp != NULL) { // 当前下标不是要删除的位置
+		if (now_index < index) { // 需要删除的下标比当前下标大，在靠近head的方向
+			temp = temp->next;
+			++now_index;
+		}
+		if (index < now_index) { // 需要删除的下标比当前下标大，在远离head的地方
+			temp = temp->prior;
+			--now_index;
+		}
+	}
+	// 删除节点
+	if (now_index == index && temp != NULL) {
+		rm_node = temp; // 将即将删除的节点储存起来,防止节点脱离链表后找不到地址
+		if (temp->next != NULL && temp->prior != NULL) { // 被删节点的下一节点和上一节点不为空（中段节点）
+			temp->prior->next = temp->next; // 把被删节点的next节点，连接到被删节点的上一节点的next
+			temp->next->prior = temp->prior; // 把被删节点的上一节点，写入到被删节点的next的上一节点
+			// 左右两边都跳过了被删节点
+		}
+		else if (temp->prior == NULL && temp->next != NULL) { // 被删节点的上一节点为空,下一节点不为空（头节点）
+			temp->next->prior = NULL;
+			head = temp->next;
+		}
+		else if (temp->prior != NULL && temp->next == NULL) { // 被删节点的上一节点不为空，下一节点为空（尾部节点）
+			temp->prior->next = NULL;
+		}
+	}
+	free(rm_node);
 }
