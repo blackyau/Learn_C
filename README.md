@@ -94,7 +94,7 @@ node[3]: 3, next:node[0]: 0
 
 [linked_double.c](https://github.com/blackyau/Learn_C/blob/master/linked_double.c)
 
-在双向链表，任意下标位置后面插入节点。运行后打印结果：
+在双向链表，任意下标位置后面插入节点。删除任意下标的节点。运行后打印结果：
 
 <details>
 <summary>展开查看</summary>
