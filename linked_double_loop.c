@@ -22,16 +22,16 @@ void main() {
 	head->value = 0;
 	for (int i = 1; i < 5; i++) insert(head, i-1, i, 0);
 	show(head);
-	printf("\ninsert -1 after node->value == 0\n");
+	printf("\n\ninsert -1 after node->value == 0\n");
 	insert(head, 0, -1, 0);
 	show(head);
-	printf("\ninsert -1 after node->value == 1\n");
+	printf("\n\ninsert -1 after node->value == 1\n");
 	insert(head, 1, -1, 0);
 	show(head);
-	printf("\ninsert -1 after node->value == 3\n");
+	printf("\n\ninsert -1 after node->value == 3\n");
 	insert(head, 3, -1, 0);
 	show(head);
-	printf("\ninsert -1 after node->value == 6\n");
+	printf("\n\ninsert -1 after node->value == 6\n");
 	insert(head, 6, -1, 0);
 	show(head);
 }
@@ -79,11 +79,13 @@ void show() {
 	temp = head;
 	int i = 0;
 	// 头节点特殊处理，不知道头节点的上一节点的下标（链表总长度）是多少
+	printf("+--------------------+-------------------+-------------------+\n");
+	printf("|        prior       |        now        |        next       |\n");
 	printf("|------------------------------------------------------------|\n");
 	printf("| node[-1]->value:%2d | node[%d]->value:%2d | node[%d]->value:%2d |\n", temp->prior->value, i, temp->value, i+1, temp->next->value);
 	temp = temp->next;
 	for (i = 1; temp != head; temp = temp->next, i++) {
 		printf("| node[%2d]->value:%2d | node[%d]->value:%2d | node[%d]->value:%2d |\n", i-1, temp->prior->value, i, temp->value, i+1, temp->next->value);
 	}
-	printf("|------------------------------------------------------------|");
+	printf("+--------------------+-------------------+-------------------+");
 }
