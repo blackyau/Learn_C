@@ -25,24 +25,24 @@ void main() {
 		temp = InitNode(temp, i);
 	}
 	show(head);
-	printf("\ninser -1 after node[1]\n");
+	printf("\n\ninser -1 after node[1]\n");
 	insert(temp, 1, -1);
 	show(head);
-	printf("\ninser -1 after node[4]\n");
+	printf("\n\ninser -1 after node[4]\n");
 	insert(temp, 4, -1);
 	show(head);
-	printf("\ninser -1 after node[3]\n");
+	printf("\n\ninser -1 after node[3]\n");
 	insert(temp, 3, -1);
 	show(head);
 	now = 0; // 后面删除都是传head，所以当前下标也都改为0。
 	// 不能继续用temp进去删除，如果把temp本身删了那以后的代码都不能继续了
-	printf("\nrm node[2]\n");
+	printf("\n\nrm node[2]\n");
 	rm(head, 2);
 	show(head);
-	printf("\nrm node[3]\n");
+	printf("\n\nrm node[3]\n");
 	rm(head, 3);
 	show(head);
-	printf("\nrm node[4]\n");
+	printf("\n\nrm node[4]\n");
 	rm(head, 4);
 	show(head);
 }
@@ -63,16 +63,20 @@ void show(Node* head) {
 	Node* temp = head;
 	int i = 0;
 	// 对头节点打印的特殊处理，因为头节点的prior为NULL
-	printf("Node[%d]->prior:NULL, Node[%d]->value:%2d, Node[%d]->next:%4d\n", i, i, temp->value, i, temp->next->value);
+	printf("+----------------------+-------------------+---------------------+\n");
+	printf("|         prior        |        now        |         next        |\n");
+	printf("|----------------------------------------------------------------|\n");
+	printf("| Node[%2d]->value:NULL | Node[%d]->value:%2d | Node[%d]->value:%4d |\n", -1, i, temp->value, i+1, temp->next->value);
 	temp = temp->next;
 	while (temp->next != NULL) {
 		++i;
-		printf("Node[%d]->prior:%4d, Node[%d]->value:%2d, Node[%d]->next:%4d\n", i, temp->prior->value, i, temp->value, i, temp->next->value);
+		printf("| Node[%2d]->value:%4d | Node[%d]->value:%2d | Node[%d]->value:%4d |\n", i-1, temp->prior->value, i, temp->value, i+1, temp->next->value);
 		temp = temp->next;
 	}
 	++i;
 	// 对尾节点的特殊处理
-	printf("Node[%d]->prior:%4d, Node[%d]->value:%2d, Node[%d]->next:NULL\n", i, temp->prior->value, i, temp->value, i);
+	printf("| Node[%2d]->value:%4d | Node[%d]->value:%2d | Node[%d]->value:NULL |\n", i-1, temp->prior->value, i, temp->value, i+1);
+	printf("+----------------------+-------------------+---------------------+");
 }
 
 void insert(Node* L, int index, int data) {

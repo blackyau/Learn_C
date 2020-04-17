@@ -100,55 +100,83 @@ node[3]: 3, next:node[0]: 0
 <summary>展开查看</summary>
 
 ```
-Node[0]->prior:NULL, Node[0]->value: 0, Node[0]->next:   1
-Node[1]->prior:   0, Node[1]->value: 1, Node[1]->next:   2
-Node[2]->prior:   1, Node[2]->value: 2, Node[2]->next:   3
-Node[3]->prior:   2, Node[3]->value: 3, Node[3]->next:NULL
++----------------------+-------------------+---------------------+
+|         prior        |        now        |         next        |
+|----------------------------------------------------------------|
+| Node[-1]->value:NULL | Node[0]->value: 0 | Node[1]->value:   1 |
+| Node[ 0]->value:   0 | Node[1]->value: 1 | Node[2]->value:   2 |
+| Node[ 1]->value:   1 | Node[2]->value: 2 | Node[3]->value:   3 |
+| Node[ 2]->value:   2 | Node[3]->value: 3 | Node[4]->value:NULL |
++----------------------+-------------------+---------------------+
 
 inser -1 after node[1]
-Node[0]->prior:NULL, Node[0]->value: 0, Node[0]->next:   1
-Node[1]->prior:   0, Node[1]->value: 1, Node[1]->next:  -1
-Node[2]->prior:   1, Node[2]->value:-1, Node[2]->next:   2
-Node[3]->prior:   1, Node[3]->value: 2, Node[3]->next:   3
-Node[4]->prior:   2, Node[4]->value: 3, Node[4]->next:NULL
++----------------------+-------------------+---------------------+
+|         prior        |        now        |         next        |
+|----------------------------------------------------------------|
+| Node[-1]->value:NULL | Node[0]->value: 0 | Node[1]->value:   1 |
+| Node[ 0]->value:   0 | Node[1]->value: 1 | Node[2]->value:  -1 |
+| Node[ 1]->value:   1 | Node[2]->value:-1 | Node[3]->value:   2 |
+| Node[ 2]->value:   1 | Node[3]->value: 2 | Node[4]->value:   3 |
+| Node[ 3]->value:   2 | Node[4]->value: 3 | Node[5]->value:NULL |
++----------------------+-------------------+---------------------+
 
 inser -1 after node[4]
-Node[0]->prior:NULL, Node[0]->value: 0, Node[0]->next:   1
-Node[1]->prior:   0, Node[1]->value: 1, Node[1]->next:  -1
-Node[2]->prior:   1, Node[2]->value:-1, Node[2]->next:   2
-Node[3]->prior:   1, Node[3]->value: 2, Node[3]->next:   3
-Node[4]->prior:   2, Node[4]->value: 3, Node[4]->next:  -1
-Node[5]->prior:   3, Node[5]->value:-1, Node[5]->next:NULL
++----------------------+-------------------+---------------------+
+|         prior        |        now        |         next        |
+|----------------------------------------------------------------|
+| Node[-1]->value:NULL | Node[0]->value: 0 | Node[1]->value:   1 |
+| Node[ 0]->value:   0 | Node[1]->value: 1 | Node[2]->value:  -1 |
+| Node[ 1]->value:   1 | Node[2]->value:-1 | Node[3]->value:   2 |
+| Node[ 2]->value:   1 | Node[3]->value: 2 | Node[4]->value:   3 |
+| Node[ 3]->value:   2 | Node[4]->value: 3 | Node[5]->value:  -1 |
+| Node[ 4]->value:   3 | Node[5]->value:-1 | Node[6]->value:NULL |
++----------------------+-------------------+---------------------+
 
 inser -1 after node[3]
-Node[0]->prior:NULL, Node[0]->value: 0, Node[0]->next:   1
-Node[1]->prior:   0, Node[1]->value: 1, Node[1]->next:  -1
-Node[2]->prior:   1, Node[2]->value:-1, Node[2]->next:   2
-Node[3]->prior:   1, Node[3]->value: 2, Node[3]->next:  -1
-Node[4]->prior:   2, Node[4]->value:-1, Node[4]->next:   3
-Node[5]->prior:   2, Node[5]->value: 3, Node[5]->next:  -1
-Node[6]->prior:   3, Node[6]->value:-1, Node[6]->next:NULL
++----------------------+-------------------+---------------------+
+|         prior        |        now        |         next        |
+|----------------------------------------------------------------|
+| Node[-1]->value:NULL | Node[0]->value: 0 | Node[1]->value:   1 |
+| Node[ 0]->value:   0 | Node[1]->value: 1 | Node[2]->value:  -1 |
+| Node[ 1]->value:   1 | Node[2]->value:-1 | Node[3]->value:   2 |
+| Node[ 2]->value:   1 | Node[3]->value: 2 | Node[4]->value:  -1 |
+| Node[ 3]->value:   2 | Node[4]->value:-1 | Node[5]->value:   3 |
+| Node[ 4]->value:   2 | Node[5]->value: 3 | Node[6]->value:  -1 |
+| Node[ 5]->value:   3 | Node[6]->value:-1 | Node[7]->value:NULL |
++----------------------+-------------------+---------------------+
 
 rm node[2]
-Node[0]->prior:NULL, Node[0]->value: 0, Node[0]->next:   1
-Node[1]->prior:   0, Node[1]->value: 1, Node[1]->next:   2
-Node[2]->prior:   1, Node[2]->value: 2, Node[2]->next:  -1
-Node[3]->prior:   2, Node[3]->value:-1, Node[3]->next:   3
-Node[4]->prior:   2, Node[4]->value: 3, Node[4]->next:  -1
-Node[5]->prior:   3, Node[5]->value:-1, Node[5]->next:NULL
++----------------------+-------------------+---------------------+
+|         prior        |        now        |         next        |
+|----------------------------------------------------------------|
+| Node[-1]->value:NULL | Node[0]->value: 0 | Node[1]->value:   1 |
+| Node[ 0]->value:   0 | Node[1]->value: 1 | Node[2]->value:   2 |
+| Node[ 1]->value:   1 | Node[2]->value: 2 | Node[3]->value:  -1 |
+| Node[ 2]->value:   2 | Node[3]->value:-1 | Node[4]->value:   3 |
+| Node[ 3]->value:   2 | Node[4]->value: 3 | Node[5]->value:  -1 |
+| Node[ 4]->value:   3 | Node[5]->value:-1 | Node[6]->value:NULL |
++----------------------+-------------------+---------------------+
 
 rm node[3]
-Node[0]->prior:NULL, Node[0]->value: 0, Node[0]->next:   1
-Node[1]->prior:   0, Node[1]->value: 1, Node[1]->next:   2
-Node[2]->prior:   1, Node[2]->value: 2, Node[2]->next:   3
-Node[3]->prior:   2, Node[3]->value: 3, Node[3]->next:  -1
-Node[4]->prior:   3, Node[4]->value:-1, Node[4]->next:NULL
++----------------------+-------------------+---------------------+
+|         prior        |        now        |         next        |
+|----------------------------------------------------------------|
+| Node[-1]->value:NULL | Node[0]->value: 0 | Node[1]->value:   1 |
+| Node[ 0]->value:   0 | Node[1]->value: 1 | Node[2]->value:   2 |
+| Node[ 1]->value:   1 | Node[2]->value: 2 | Node[3]->value:   3 |
+| Node[ 2]->value:   2 | Node[3]->value: 3 | Node[4]->value:  -1 |
+| Node[ 3]->value:   3 | Node[4]->value:-1 | Node[5]->value:NULL |
++----------------------+-------------------+---------------------+
 
 rm node[4]
-Node[0]->prior:NULL, Node[0]->value: 0, Node[0]->next:   1
-Node[1]->prior:   0, Node[1]->value: 1, Node[1]->next:   2
-Node[2]->prior:   1, Node[2]->value: 2, Node[2]->next:   3
-Node[3]->prior:   2, Node[3]->value: 3, Node[3]->next:NULL
++----------------------+-------------------+---------------------+
+|         prior        |        now        |         next        |
+|----------------------------------------------------------------|
+| Node[-1]->value:NULL | Node[0]->value: 0 | Node[1]->value:   1 |
+| Node[ 0]->value:   0 | Node[1]->value: 1 | Node[2]->value:   2 |
+| Node[ 1]->value:   1 | Node[2]->value: 2 | Node[3]->value:   3 |
+| Node[ 2]->value:   2 | Node[3]->value: 3 | Node[4]->value:NULL |
++----------------------+-------------------+---------------------+
 ```
 </details>
 
