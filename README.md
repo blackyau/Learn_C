@@ -152,6 +152,12 @@ Node[3]->prior:   2, Node[3]->value: 3, Node[3]->next:NULL
 ```
 </details>
 
+## 双向循环链表
+
+[linked_double_loop.c](https://github.com/blackyau/Learn_C/blob/master/linked_double_loop.c)
+
+未完成
+
 # TODO
 
 ## 单链表
