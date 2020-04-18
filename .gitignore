@@ -56,3 +56,4 @@ dkms.conf
 /learn.vcxproj.filters
 /learn.vcxproj.user
 /learn.sln
+/test.c
