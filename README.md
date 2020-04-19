@@ -184,7 +184,84 @@ rm node[4]
 
 [linked_double_loop.c](https://github.com/blackyau/Learn_C/blob/master/linked_double_loop.c)
 
-未完成
+在双向循环链表，任意下标位置的后面插入节点，删除指定值的节点。
+
+<details>
+<summary>展开查看</summary>
+
+```
++--------------------+-------------------+-------------------+
+|        prior       |        now        |        next       |
+|------------------------------------------------------------|
+| node[-1]->value: 4 | node[0]->value: 0 | node[1]->value: 1 |
+| node[ 0]->value: 0 | node[1]->value: 1 | node[2]->value: 2 |
+| node[ 1]->value: 1 | node[2]->value: 2 | node[3]->value: 3 |
+| node[ 2]->value: 2 | node[3]->value: 3 | node[4]->value: 4 |
+| node[ 3]->value: 3 | node[4]->value: 4 | node[5]->value: 0 |
++--------------------+-------------------+-------------------+
+
+insert -1 after node->value == 0
++--------------------+-------------------+-------------------+
+|        prior       |        now        |        next       |
+|------------------------------------------------------------|
+| node[-1]->value: 4 | node[0]->value: 0 | node[1]->value:-1 |
+| node[ 0]->value: 0 | node[1]->value:-1 | node[2]->value: 1 |
+| node[ 1]->value:-1 | node[2]->value: 1 | node[3]->value: 2 |
+| node[ 2]->value: 1 | node[3]->value: 2 | node[4]->value: 3 |
+| node[ 3]->value: 2 | node[4]->value: 3 | node[5]->value: 4 |
+| node[ 4]->value: 3 | node[5]->value: 4 | node[6]->value: 0 |
++--------------------+-------------------+-------------------+
+
+insert -1 after node->value == 2
++--------------------+-------------------+-------------------+
+|        prior       |        now        |        next       |
+|------------------------------------------------------------|
+| node[-1]->value: 4 | node[0]->value: 0 | node[1]->value:-1 |
+| node[ 0]->value: 0 | node[1]->value:-1 | node[2]->value: 1 |
+| node[ 1]->value:-1 | node[2]->value: 1 | node[3]->value:-1 |
+| node[ 2]->value: 1 | node[3]->value:-1 | node[4]->value: 2 |
+| node[ 3]->value:-1 | node[4]->value: 2 | node[5]->value: 3 |
+| node[ 4]->value: 2 | node[5]->value: 3 | node[6]->value: 4 |
+| node[ 5]->value: 3 | node[6]->value: 4 | node[7]->value: 0 |
++--------------------+-------------------+-------------------+
+
+insert -1 after node->value == 7
++--------------------+-------------------+-------------------+
+|        prior       |        now        |        next       |
+|------------------------------------------------------------|
+| node[-1]->value: 4 | node[0]->value: 0 | node[1]->value:-1 |
+| node[ 0]->value: 0 | node[1]->value:-1 | node[2]->value:-1 |
+| node[ 1]->value:-1 | node[2]->value:-1 | node[3]->value: 1 |
+| node[ 2]->value:-1 | node[3]->value: 1 | node[4]->value:-1 |
+| node[ 3]->value: 1 | node[4]->value:-1 | node[5]->value: 2 |
+| node[ 4]->value:-1 | node[5]->value: 2 | node[6]->value: 3 |
+| node[ 5]->value: 2 | node[6]->value: 3 | node[7]->value: 4 |
+| node[ 6]->value: 3 | node[7]->value: 4 | node[8]->value: 0 |
++--------------------+-------------------+-------------------+
+
+rm node->value==-1
++--------------------+-------------------+-------------------+
+|        prior       |        now        |        next       |
+|------------------------------------------------------------|
+| node[-1]->value: 4 | node[0]->value: 0 | node[1]->value: 1 |
+| node[ 0]->value: 0 | node[1]->value: 1 | node[2]->value: 2 |
+| node[ 1]->value: 1 | node[2]->value: 2 | node[3]->value: 3 |
+| node[ 2]->value: 2 | node[3]->value: 3 | node[4]->value: 4 |
+| node[ 3]->value: 3 | node[4]->value: 4 | node[5]->value: 0 |
++--------------------+-------------------+-------------------+
+
+rm node->value==-2
++--------------------+-------------------+-------------------+
+|        prior       |        now        |        next       |
+|------------------------------------------------------------|
+| node[-1]->value: 4 | node[0]->value: 0 | node[1]->value: 1 |
+| node[ 0]->value: 0 | node[1]->value: 1 | node[2]->value: 2 |
+| node[ 1]->value: 1 | node[2]->value: 2 | node[3]->value: 3 |
+| node[ 2]->value: 2 | node[3]->value: 3 | node[4]->value: 4 |
+| node[ 3]->value: 3 | node[4]->value: 4 | node[5]->value: 0 |
++--------------------+-------------------+-------------------+
+```
+</details>
 
 # TODO
 
