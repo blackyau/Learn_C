@@ -184,7 +184,7 @@ rm node[4]
 
 [linked_double_loop.c](linked_double_loop.c)
 
-在双向循环链表，任意下标位置的后面插入节点，删除指定值的节点。
+在双向循环链表，任意下标位置的后面插入节点，删除指定值的节点。运行后打印结果：
 
 <details>
 <summary>展开查看</summary>
@@ -267,7 +267,12 @@ rm node->value==-2
 
 [stack_array.c](stack_array.c)
 
-最基本的栈，基于数组实现
+最基本的栈，基于数组实现。运行后打印结果：
+
+```
+1 1 1 1 1 1 0
+5 4 3 2 1 0 0
+```
 
 # TODO
 
