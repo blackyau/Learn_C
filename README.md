@@ -297,6 +297,14 @@ dequeue num:0 1 2
 3 4 5 6 7 8
 ```
 
+## 链式队列
+
+[queue_linked.c](queue_linked.c)
+
+使用链表实现的队列。
+
+未完成
+
 # TODO
 
 ## 单链表
