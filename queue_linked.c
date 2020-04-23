@@ -20,10 +20,11 @@ void main() {
 	for (int i = 1; i < 4; i++) {
 		enqueue(i);
 	}
-	for (int i = 1; i < 5; i++) {
+	// i大于插入的数据量，模拟队列已空还出列的情况
+	for (int i = 1; i < 7; i++) {
 		int out;
-		dequeue(&out);
-		printf("%d ", out);
+		int result = dequeue(&out);
+		printf("%d ", result?out:0);
 	}
 }
 
@@ -43,6 +44,6 @@ int dequeue(int *data) {
 	node* rm_node = NULL; // 初始化删除节点
 	rm_node = head; // 存好准备删除的节点
 	head = head->next; // 头节点移动至下一位
-	//free(rm_node); // 删除无效节点
+	//free(rm_node); // 因为头节点是static所以无法free，懒得再写一遍局部变量了
 	return 1;
 }
