@@ -5,7 +5,7 @@
 typedef struct node {
 	struct node* left;
 	struct node* right;
-	int value;
+	char value;
 }node;
 
 void initTree(node* root, int data, int chilData); // 初始化根和左右子树
@@ -13,9 +13,9 @@ void preOrder(node* root); // 前序遍历
 
 void main() {
 	node* root = (node*)malloc(sizeof(node));
-	initTree(root, 1, 2);
-	initTree(root->left, 2, 4);
-	initTree(root->right, 3, 6);
+	initTree(root, 'A', 'B');
+	initTree(root->left, 'B', 'D');
+	initTree(root->right, 'C', 'F');
 	preOrder(root);
 }
 
@@ -38,7 +38,7 @@ void initTree(node* root, int rootData, int childData) {
 
 void preOrder(node* root){ // 前序遍历
 	if (root == NULL)return;
-	printf("%d", root->value);
+	printf("%c", root->value);
 	preOrder(root->left);
 	preOrder(root->right);
 }
