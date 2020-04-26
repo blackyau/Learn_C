@@ -313,10 +313,10 @@ dequeue num:0 1 2
 
 初始化树，并分别使用递归实现，前序/中序/后续 排列。运行后打印结果：
 
-**未完成**
-
 ```
-ABDECFG
+preOrder :ABDECFG
+inOrder  :DBEAFCG
+pastOrder:DEBFGCA
 ```
 
 ## 查找二叉树
