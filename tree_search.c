@@ -20,8 +20,8 @@ void pastOrder(node* root); // 后序遍历
 void show(node* root);
 
 void main() {
-	int data_list[15] = {55, 50, 16, 17, 19, 15, 58, 66, 51, 13, 34, 18, 51, 25, 27};
-	for (int i = 0; i < 15; i++) insert(data_list[i]);
+	int data_list[14] = {50, 34, 58, 66, 51, 55, 16, 18, 13, 15, 17, 25, 27, 19};
+	for (int i = 0; i < 14; i++) insert(data_list[i]);
 	printf("%d\n", find(66)->value);
 	printf("%d\n\n", find(10));
 	printf("original:\n");
@@ -78,8 +78,8 @@ node* find(int data) { // 查找节点
 }
 
 void delete(int data) { // 删除节点
-	node* rm = NULL;
-	node* rm_father = head;
+	node* rm = head; // 要删除的节点初始化指向根节点
+	node* rm_father = NULL; // rm的父节点，之所以初始化为NULL是因为，删除节点可能是根节点
 	// 主循环，找到值匹配的节点
 	while (rm != NULL && rm->value != data) {
 		rm_father = rm; // 储存父节点的信息,后续的删除操作需要用到
