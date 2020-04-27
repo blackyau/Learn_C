@@ -1,6 +1,7 @@
 // 查找二叉树(左子树中的每个节点的值，都要小于这个节点的值，而右子树节点的值都大于这个节点的值)
 #include<stdio.h>
 #include<stdlib.h>
+#include<math.h>
 
 typedef struct node {
 	struct node* left;
@@ -17,7 +18,8 @@ void delete(int data); // 删除数据
 void preOrder(node* root); // 前序遍历
 void inOrder(node* root); // 中序遍历
 void pastOrder(node* root); // 后序遍历
-void show(node* root);
+void show(node* root); // 前/中/后 序遍历树
+int depth(node* root); // 求二叉树高度
 
 void main() {
 	int data_list[14] = {50, 34, 58, 66, 51, 55, 16, 18, 13, 15, 17, 25, 27, 19};
@@ -35,6 +37,7 @@ void main() {
 	printf("del 18 after:\n");
 	delete(18);
 	show(head);
+	printf("depth:%d", depth(head));
 }
 
 void insert(int data) { // 插入数据
@@ -145,4 +148,13 @@ void show(node* root) {
 	printf("\npastOrder:");
 	pastOrder(root);
 	printf("\n\n");
+}
+
+int depth(node* root) {
+	int max;
+	if (root == NULL)return 0;
+	int leftDepth = depth(root->left);
+	int rightDepth = depth(root->right);
+	max = max(leftDepth, rightDepth)+1;
+	return max;
 }
