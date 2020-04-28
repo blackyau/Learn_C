@@ -12,8 +12,10 @@ void initTree(node* root, int data, int chilData); // 初始化根和左右子�
 void preOrder(node* root); // 前序遍历
 void inOrder(node* root); // 中序遍历
 void pastOrder(node* root); // 后序遍历
+void countLeaf(node*, int* count); // 统计叶子节点
 
 void main() {
+	int count = 0;
 	node* root = (node*)malloc(sizeof(node));
 	initTree(root, 'A', 'B');
 	initTree(root->left, 'B', 'D');
@@ -24,6 +26,9 @@ void main() {
 	inOrder(root);
 	printf("\npastOrder:");
 	pastOrder(root);
+	printf("\nconutLeaf:");
+	countLeaf(root, &count);
+	printf("%d", count);
 }
 
 // rootData 为本身的值，childData 为左子树的值，右子树的值为 childData+1
@@ -63,4 +68,12 @@ void pastOrder(node* root) {
 	pastOrder(root->left); // 先打印左子树
 	pastOrder(root->right); // 再打印右子树
 	printf("%c", root->value); // 最后打印自己
+}
+
+void countLeaf(node* root, int* count) {
+	if (root) { // 如果当前节点不为 NULL
+		if (root->left == NULL && root->right == NULL) (*count)++;
+		countLeaf(root->left, count);
+		countLeaf(root->right, count);
+	}
 }
