@@ -311,17 +311,26 @@ dequeue num:0 1 2
 
 [tree_order.c](tree_order.c)
 
-初始化树，并分别使用递归实现，前序/中序/后续 排列。运行后打印结果：
+![二叉树的三种遍历](img/tree_order.jpg)
+
+> 图片版权 © 归极客邦科技所有 [极客时间@王争 数据结构与算法之美](https://time.geekbang.org/column/intro/126)
+
+初始化树，并分别使用递归实现，前序/中序/后续 排列，统计叶子节点个数。运行后打印结果：
 
 ```
 preOrder :ABDECFG
 inOrder  :DBEAFCG
 pastOrder:DEBFGCA
+conutLeaf:4
 ```
 
 ## 查找二叉树
 
 [tree_search.c](tree_search.c)
+
+![查找二叉树](img/tree_search.jpg)
+
+> 图片版权 © 归极客邦科技所有 [极客时间@王争 数据结构与算法之美](https://time.geekbang.org/column/intro/126)
 
 在查找二叉树中 插入/查找/删除 任意值。运行后打印结果：
 
