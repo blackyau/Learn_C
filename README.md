@@ -365,6 +365,12 @@ depth:5
 ```
 </details>
 
+## Huffman 树
+
+[tree_huffman.c](tree_huffman.c)
+
+未完成
+
 # TODO
 
 ## 单链表
