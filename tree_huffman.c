@@ -13,8 +13,8 @@ typedef struct node {
 
 // 创建 Huffman 树，返回头节点。传入参数依次为：节点指针数组、字符数组、权重数组、数组长度
 node* create(node* node_list[], char key_list[], int weight_list[], int list_len);
-// 在节点指针中，查找最小的两个节点。并通过 min1 和 min2 返回(把节点地址写入)节点指针。
-void select(node* node_list[], int *list_len, int* min1, int* min2);
+// 在节点指针中，查找最小的两个节点，并将他们两个连接为一个新节点，然后添加进 node_list 并把被合并的两个节点从中删除
+void select(node* node_list[], int *list_len);
 // 打印树结构
 void showTree(node* head);
 // 打印编码结果
@@ -46,16 +46,18 @@ node* create(node* node_list[], char key_list[], int weight_list[], int list_len
 		temp->right = NULL; // 右子树
 	}
 	select(node_list, list_len_p, min1, min2);
+	printf("End");
 }
 
-// TODO 要有动态维护的数组，要保证构建的新树也可以在下一次select的时候所用
-void select(node* node_list[], int* list_len, int* min1, int* min2) {
+
+void select(node* node_list[], int* list_len) {
 	if (*list_len < 1) return; // 数组没内容了
 	int min1_index = 0, min2_index = 1; // 结合起来后权重最小的两个节点的下标
 	int index_plus = 0; // 结合后产生的新节点,的索引下标
 	int sum=1000000000; // 两数结合起来后的和,初始化一个比较大的数
 	for (int i = 0; i < *list_len; i++) { // 依次比较
 		for (int j = i + 1; j < *list_len; j++) {
+			// TODO 这里还需要添加父节点的判断
 			if (node_list[i]->weight + node_list[j]->weight < sum) { // 当前两个节点的权重比上一个的小
 				min1_index = i; // 记录第1个节点的下标
 				min2_index = j; // 记录第2个节点的下标
@@ -63,24 +65,26 @@ void select(node* node_list[], int* list_len, int* min1, int* min2) {
 			}
 		}
 	}
-	*min1 = node_list[min1_index]; // 把被合并的节点信息传到外部
-	*min2 = node_list[min2_index];
-	int new_len = *list_len - 1;
-	*list_len = new_len;
-	node* new_node = (node*)malloc(sizeof(node));
-	new_node->father = NULL;
-	new_node->left = node_list[min1_index];
-	new_node->right = node_list[min2_index];
-	new_node->weight = new_node->left->weight + new_node->right->weight;
-	new_node->left->father = new_node;
+	node* new_node = (node*)malloc(sizeof(node)); // 创建新节点
+	new_node->father = NULL; // 新节点无父节点
+	new_node->left = node_list[min1_index]; // 初始化左节点
+	new_node->right = node_list[min2_index]; // 初始化右节点
+	new_node->weight = new_node->left->weight + new_node->right->weight; // 权重为两节点之和
+	new_node->left->father = new_node; // 更新被合并节点的父节点
 	new_node->right->father = new_node;
-	node* new_node_list = (node*)malloc((new_len - 1)*sizeof(node)); // 相当于 node* new_node_list[new_len]
+	node* new_node_list = (node*)malloc((*list_len - 1)*sizeof(node)); // 相当于 node* new_node_list[new_len]
+
+	// 创建新的节点指针数组（删除被合并节点，添加新节点）
 	int temp_j = 0;
-	new_node_list[0] = new_node;
-	for (int i = 1; i < *list_len; i++) {
+	for (int i = 0; i < *list_len; i++) {
+		// 如果碰到了被合并节点，就跳过
 		if (node_list[i] == node_list[min1_index] || node_list[i] == node_list[min2_index]) {
-			++temp_j;
+			++temp_j; // 新数组的下标
+			continue;
 		}
-		new_node_list[2] = node_list[i];
+		new_node_list[i-temp_j] = *node_list[i]; // 错位赋值，因为新数组要小些
 	}
+	new_node_list[*list_len] = *new_node; // 新节点放在数组的最后面
+	node_list = new_node_list; // 把新数组传递到外部
+	*list_len = *list_len -1; // 把新下标传递到外部
 }
