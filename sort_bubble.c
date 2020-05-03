@@ -5,14 +5,13 @@
 void sortBubble(int array[], int len);
 
 void main() {
-	int n = 7;
-	int array[7] = {4, 5, 6, 3, 2, 1};
-	for (int i = 0; i < n; i++) {
+	int array[LEN] = {4, 5, 6, 3, 2, 1};
+	for (int i = 0; i < LEN; i++) {
 		printf("%d ", array[i]);
 	}
 	printf("\n");
-	sortBubble(array, n);
-	for (int i = 0; i < n; i++) {
+	sortBubble(array, LEN);
+	for (int i = 0; i < LEN; i++) {
 		printf("%d ", array[i]);
 	}
 }
