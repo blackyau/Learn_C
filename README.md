@@ -386,6 +386,10 @@ depth:5
 
 [sort_insert.c](sort_insert.c)
 
+![插入排序](img/tree_search.jpg)
+
+> 图片版权 © 归极客邦科技所有 [极客时间@王争 数据结构与算法之美](https://time.geekbang.org/column/intro/126)
+
 插入排序，将数组分为两段：已排序和未排序。把未排序的数，和已排序的数进行对比，并将未排序的数插入到已排序数组中的合适位置。运行后打印结果：
 
 ```
