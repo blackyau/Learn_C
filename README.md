@@ -386,7 +386,7 @@ depth:5
 
 [sort_insert.c](sort_insert.c)
 
-![插入排序](img/tree_search.jpg)
+![插入排序](img/sort_insert.jpg)
 
 > 图片版权 © 归极客邦科技所有 [极客时间@王争 数据结构与算法之美](https://time.geekbang.org/column/intro/126)
 
