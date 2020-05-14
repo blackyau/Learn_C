@@ -475,6 +475,12 @@ depth:5
 1 2 3 4 5 6
 ```
 
+## 归并排序
+
+[sort_merge.c](sort_merge.c)
+
+未完成
+
 # TODO
 
 ## 单链表
