@@ -1,10 +1,11 @@
 // 归并排序
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
-void sort_merge(int list[], int n);
-void sort_merge_c(int a[], int p, int r);
-void merge(int arr[], int p, int q, int r);
+void sort_merge(int list[], int n); // 初始化入口
+void sort_merge_c(int a[], int p, int r); // 递归调用函数
+void merge(int arr[], int p, int q, int r); // 合并函数
 
 void main() {
 	int list[6] = { 1, 5, 6, 2, 3, 4 };
@@ -30,9 +31,38 @@ void sort_merge_c(int a[], int p, int r) {
 }
 
 // 合并数组
+// 数组、首元素、中间元素、尾元素
 void merge(int arr[], int p, int q, int r) {
 	int* temp;
 	int i, j, k;
 	temp = (int*)malloc((r - p + 1) * sizeof(int)); // 创建一个长度和原数组一样的数组
+	if (!temp)
+		abort(); // exit(1) 程序异常终止
 
+	// i为前一半元素的首地址，j为后一半元素首地址，k为临时数组的当前下标
+	// 将i或j里面小的那一个放进临时数组
+	for (i = p, j = q + 1, k = 0; i <= q && j <= r;) {
+		if (arr[i] <= arr[j])
+			temp[k++] = arr[i++];
+		else
+			temp[k++] = arr[j++];
+	}
+
+	// 下面就是用来连接，数组中没有参加上面计算的元素，把arr中的其他元素也搬进temp，用于下一次递归
+
+	// 哪一个数组有剩余元素
+	int start = i, end = q; // 默认是左边
+	if (j <= r) { // 如果右边的有剩余元素
+		start = j; // 交换一下，把下标都换成右边的
+		end = r;
+	}
+
+	// 把剩余元素拷贝进临时数组
+	while (start <= end) {
+		temp[k++] = arr[start++];
+	}
+
+	// 把整理好的数字返回给原始数组
+	memcpy(arr + p, temp, (r - p + 1) * sizeof(int));
+	free(temp);
 }
