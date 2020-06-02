@@ -328,6 +328,8 @@ conutLeaf:4
 
 [tree_search.c](tree_search.c)
 
+左<根<右
+
 ![查找二叉树](img/tree_search.jpg)
 
 > 图片版权 © 归极客邦科技所有 [极客时间@王争 数据结构与算法之美](https://time.geekbang.org/column/intro/126)
